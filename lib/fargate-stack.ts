@@ -35,15 +35,15 @@ export class FargateStack extends Stack {
             portMappings: [{ containerPort: 80, hostPort: 80 }],
         });
 
-        // taskDefinition.addContainer(prefixResource("streamlit-app-container"), {
-        //     image: props!.imageStack.streamlitApp,
-        //     logging: LogDrivers.awsLogs({
-        //         streamPrefix: id,
-        //         logRetention: RetentionDays.ONE_YEAR,
-        //     }),
-        //     readonlyRootFilesystem: true,
-        //     portMappings: [{containerPort: 8501}],
-        // });
+        taskDefinition.addContainer(prefixResource("streamlit-app-container"), {
+            image: props!.imageStack.streamlitApp,
+            logging: LogDrivers.awsLogs({
+                streamPrefix: id,
+                logRetention: RetentionDays.ONE_YEAR,
+            }),
+            readonlyRootFilesystem: true,
+            portMappings: [{ containerPort: 8501, hostPort: 8501 }],
+        });
 
         const fargateService = new ApplicationLoadBalancedFargateService(
             this,
