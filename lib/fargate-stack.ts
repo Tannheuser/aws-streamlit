@@ -32,7 +32,7 @@ export class FargateStack extends Stack {
                 logRetention: RetentionDays.ONE_YEAR,
             }),
             readonlyRootFilesystem: true,
-            portMappings: [{containerPort: 80}],
+            portMappings: [{ containerPort: 80, hostPort: 80 }],
         });
 
         // taskDefinition.addContainer(prefixResource("streamlit-app-container"), {
