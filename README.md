@@ -19,6 +19,12 @@ or provide a `--profile your_profile_name` parameter to AWS CDK commands.
 
 Make sure you have `typescript` and `Docker` installed.
 
+Install the required dependencies:
+
+```console
+npm install
+```
+
 For the first time run cdk bootstrap command:
 
 ```console
